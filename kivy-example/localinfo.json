@@ -1,0 +1,6 @@
+{
+    public_ip: "210.25.0.8",
+    device_ip: "192.168.100.10",
+    network_link: "1Gb",
+    avr_ping_gateway: 20
+}

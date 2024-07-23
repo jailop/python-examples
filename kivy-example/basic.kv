@@ -1,0 +1,49 @@
+<KeyValue>:
+    rows: 1
+    cols: 2
+    size_hint_y: 10
+    Label:
+        text: root.key_attr
+        font_size: sp(20)
+        text_size: self.size
+        halign: 'left'
+        valign: 'middle'
+        size_hint_x: 0.8
+    TextInput:
+        text: root.value_attr
+        font_size: sp(24)
+        text_size: self.size
+        valign: 'middle'
+    
+<Default>:
+    rows: 4
+    background_color: 0.25, 0.5, 0.7, 1.0
+    canvas.before:
+        Color:
+            rgba: root.background_color
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    Label:
+        text: "Basic information"
+        font_size: sp(30)
+    GridLayout:
+        rows: 10
+        margin: 40
+        row_force_default: True
+        row_default_height: 60
+        id: key_value_props
+        padding: 10
+        size_hint_y: 5
+    RealTimeLineChart:
+        size_hint_y: 5
+    BoxLayout:
+        size_hint_y: 2
+        Button:
+            text: "Advanced\ninformation"
+        Button:
+            text: "Testing"
+        Button:
+            text: "More..."
+
+

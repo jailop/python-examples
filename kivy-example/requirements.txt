@@ -1,0 +1,7 @@
+kivy[base]
+numpy
+matplotlib
+kivy-garden.matplotlib
+zmq
+scapy
+rich
