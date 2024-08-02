@@ -1,0 +1,107 @@
+18:54:52 : ### Example 1: Loop to launch threads ###
+18:54:52 : main thread: starting
+18:54:52 : thread 0 is starting
+18:54:52 : thread 1 is starting
+18:54:52 : thread 2 is starting
+18:54:52 : thread 3 is starting
+18:54:52 : thread 4 is starting
+18:54:52 : thread 5 is starting
+18:54:52 : thread 6 is starting
+18:54:52 : thread 7 is starting
+18:54:52 : thread 8 is starting
+18:54:52 : thread 9 is starting
+18:54:52 : main thread: waiting workers to finish
+18:54:53 : thread 1 has finished
+18:54:53 : thread 3 has finished
+18:54:53 : thread 4 has finished
+18:54:54 : thread 5 has finished
+18:54:54 : thread 8 has finished
+18:54:55 : thread 7 has finished
+18:54:55 : thread 9 has finished
+18:54:57 : thread 0 has finished
+18:54:57 : thread 2 has finished
+18:54:57 : thread 6 has finished
+18:54:57 : main thread: done
+18:54:57 : ### Example 2: Pool executor ###
+18:54:57 : thread 0 is starting
+18:54:57 : thread 1 is starting
+18:54:57 : thread 2 is starting
+18:54:57 : thread 3 is starting
+18:54:57 : thread 4 is starting
+18:54:57 : thread 5 is starting
+18:54:57 : thread 6 is starting
+18:54:57 : thread 7 is starting
+18:54:57 : thread 8 is starting
+18:54:57 : thread 9 is starting
+18:54:58 : thread 0 has finished
+18:54:58 : thread 3 has finished
+18:54:58 : thread 4 has finished
+18:54:58 : thread 5 has finished
+18:54:58 : thread 9 has finished
+18:54:59 : thread 8 has finished
+18:55:00 : thread 2 has finished
+18:55:01 : thread 6 has finished
+18:55:01 : thread 7 has finished
+18:55:02 : thread 1 has finished
+18:55:02 : ### Example 3: Race condition ###
+18:55:02 : thread 0: starting update
+18:55:02 : thread 1: starting update
+18:55:02 : thread 2: starting update
+18:55:02 : thread 3: starting update
+18:55:02 : thread 4: starting update
+18:55:02 : thread 5: starting update
+18:55:02 : thread 6: starting update
+18:55:02 : thread 7: starting update
+18:55:02 : thread 8: starting update
+18:55:02 : thread 9: starting update
+18:55:03 : datapool value: 1
+18:55:03 : thread 6, update completed
+18:55:03 : datapool value: 1
+18:55:03 : thread 7, update completed
+18:55:04 : datapool value: 1
+18:55:04 : thread 0, update completed
+18:55:05 : datapool value: 1
+18:55:05 : thread 3, update completed
+18:55:05 : datapool value: 1
+18:55:05 : thread 4, update completed
+18:55:05 : datapool value: 1
+18:55:05 : thread 5, update completed
+18:55:06 : datapool value: 1
+18:55:06 : thread 1, update completed
+18:55:06 : datapool value: 1
+18:55:06 : thread 8, update completed
+18:55:07 : datapool value: 1
+18:55:07 : thread 2, update completed
+18:55:07 : datapool value: 1
+18:55:07 : thread 9, update completed
+18:55:07 : ### Example 4: Lock to avoid race condition ###
+18:55:07 : thread 0: starting update
+18:55:11 : datapool value: 1
+18:55:11 : thread 0, update completed
+18:55:11 : thread 1: starting update
+18:55:12 : datapool value: 2
+18:55:12 : thread 1, update completed
+18:55:12 : thread 2: starting update
+18:55:16 : datapool value: 3
+18:55:16 : thread 2, update completed
+18:55:16 : thread 3: starting update
+18:55:20 : datapool value: 4
+18:55:20 : thread 3, update completed
+18:55:20 : thread 4: starting update
+18:55:21 : datapool value: 5
+18:55:21 : thread 4, update completed
+18:55:21 : thread 5: starting update
+18:55:23 : datapool value: 6
+18:55:23 : thread 5, update completed
+18:55:23 : thread 6: starting update
+18:55:24 : datapool value: 7
+18:55:24 : thread 6, update completed
+18:55:24 : thread 7: starting update
+18:55:28 : datapool value: 8
+18:55:28 : thread 7, update completed
+18:55:28 : thread 8: starting update
+18:55:31 : datapool value: 9
+18:55:31 : thread 8, update completed
+18:55:31 : thread 9: starting update
+18:55:35 : datapool value: 10
+18:55:35 : thread 9, update completed

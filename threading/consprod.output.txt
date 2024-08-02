@@ -1,0 +1,16 @@
+18:50:58 : Producer put message: 75
+18:50:58 : Consumer got message: 75
+18:51:00 : Producer put message: 33
+18:51:00 : Consumer got message: 33
+18:51:03 : Producer put message: 85
+18:51:03 : Consumer got message: 85
+18:51:04 : Producer put message: 11
+18:51:05 : Producer put message: 7
+18:51:07 : Consumer got message: 11
+18:51:09 : Producer put message: 31
+18:51:11 : Consumer got message: 7
+18:51:14 : Producer put message: 92
+18:51:14 : Producer received event. Finishing
+18:51:15 : Consumer got message: 31
+18:51:17 : Consumer got message: 92
+18:51:17 : Consumer received event. Finishing
