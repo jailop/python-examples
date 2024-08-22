@@ -1,0 +1,30 @@
+Script started on 2024-08-22 07:24:49-04:00 [TERM="tmux-256color" TTY="/dev/pts/4" COLUMNS="120" LINES="27"]
+]0;jailop@rosie:~/demo/sqlinjection[?2004h[jailop@rosie sqlinjection]$ DBNAME=user.[Ks.db SALT=secret python3 createdb.py 
+[?2004l]0;jailop@rosie:~/demo/sqlinjection[?2004h[jailop@rosie sqlinjection]$ DBNAME=users.db SALT=secret python3 createdb.py [K[K[K[K[K[K[K[K[K[K[K[Kauth.py 
+[?2004lUsername: adam
+Password: 1234
+Login accepted. Welcome!
+]0;jailop@rosie:~/demo/sqlinjection[?2004h[jailop@rosie sqlinjection]$ DBNAME=users.db SALT=secret python3 auth.py 
+[?2004lUsername: 2345
+Password: ffad
+Invalid username or password. Try again.
+]0;jailop@rosie:~/demo/sqlinjection[?2004h[jailop@rosie sqlinjection]$ DBNAME=users.db SALT=secret python3 auth.py 
+[?2004lUsername: adam
+Password: dgfjlwer
+Invalid username or password. Try again.
+]0;jailop@rosie:~/demo/sqlinjection[?2004h[jailop@rosie sqlinjection]$ DBNAME=users.db SALT=secret python3 auth.py 
+[?2004lUsername: adam
+Password: ^CTraceback (most recent call last):
+  File "/home/jailop/demo/sqlinjection/auth.py", line 27, in <module>
+    password = input("Password: ")
+               ^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+
+]0;jailop@rosie:~/demo/sqlinjection[?2004h[jailop@rosie sqlinjection]$ DBNAME=users.db SALT=secret python3 auth.py 
+[?2004lUsername: adam' R OR ´1  '1'='1' 
+Password: afhjldlka
+Login accepted. Welcome!
+]0;jailop@rosie:~/demo/sqlinjection[?2004h[jailop@rosie sqlinjection]$ [?2004l
+exit
+
+Script done on 2024-08-22 07:26:02-04:00 [COMMAND_EXIT_CODE="0"]

@@ -1,0 +1,19 @@
+* Saludo
+* Introducción
+    * SQL Injection: breve definición
+    * Importancia: Gráfica de Kapersky
+* Conceptualización
+    * Explicación de diagrama
+* Laboratorio
+    * Exposición del código
+    * Demostración sin vulnerabilidad
+    * Demostración con vulenrabilidad
+    * Explicación de la vulnerabilidad
+    * Mejora del código
+* Discusión:
+    * No importa el lenguaje en que esté escrito
+    * si no se toman precauciones, es una vulnerabilidad relevante
+    * medidas para evitar sql injection:
+        * Sanitaze the input
+        * Validar la SQL instrucción antes de ser ejecutada
+        * Prepare statements
