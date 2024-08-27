@@ -1,3 +1,7 @@
 2024-08-22:
 
 * SQL Injection demo included
+
+2024-08-27:
+
+* Binding zig functions in Python, example added
