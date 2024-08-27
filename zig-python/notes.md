@@ -2,7 +2,12 @@
 
 # Calling Zig functions from Python
 
-Python, besides being a friendly programming languages, makes it easy to call C functions. Given that Zig shared the same ABI with C, it is the same as easy to call Zig functions from Python. This feature makes you able to write programs that shows a Python's friendly interface supported by extended and performant Zig's functions. In this article, a non-trivial example is shown: a program to make HTTP requests.
+Python, besides being a friendly programming languages, makes it easy to call C
+functions. Given that Zig shares the same ABI with C, it is the same as easy to
+call Zig functions from Python. This feature makes you able to write programs
+that shows a Python's friendly interface supported by extended and performant
+Zig's functions. In this article, a non-trivial example is shown: a program to
+make HTTP requests.
 
 ## Zig request function
 
@@ -17,9 +22,23 @@ Our `request` function will receive two arguments:
 * `allocator`: An memory allocator object
 * `url`: Request address represented as an sequence of bytes
 
-This function will return an optional with two possible values: the content for the requested resource, or an error value. If the requested content is returned, memory allocated for it should be freed.
+This function will return an optional with two possible values: the content for
+the requested resource, or an error value. If the requested content is returned,
+memory allocated for it should be freed.
 
-Adapted from the [Zig Cookbook](https://cookbook.ziglang.cc/05-01-http-get.html), here is an implementation for the `request` function:
+To check if this function works properly, here a test:
+
+```zig
+test "Request" {
+    const allocator = std.testing.allocator;
+    const url = "http://localhost";
+    const response = try request(allocator, url);
+    defer allocator.free(response);
+}
+```
+
+Adapted from the [Zig Cookbook](https://cookbook.ziglang.cc/05-01-http-get.html), here is an
+implementation for the `request` function:
 
 ```zig
 const std = @import("std");
@@ -51,17 +70,6 @@ Operations performed by this function are listed below. In case, any of these op
 * retrieving data
 * returnning content
 
-To check if this function works properly, here a test:
-
-```zig
-test "Request" {
-    const allocator = std.testing.allocator;
-    const url = "http://localhost";
-    const response = try request(allocator, url);
-    defer allocator.free(response);
-}
-```
-
 If the `request` function and its test are saved in a file named `request.zig`, you can run this command to run the test:
 
 ```bash
@@ -85,6 +93,17 @@ export fn request_deallocate(result: [*:0]u8) void
 ```
 
 Notice that arguments are array pointers with 0 sentinel value. The return type for `request_wrapper` is an optional, i.e. its value can be `null`. Memory to store the HTTP response is allocated in `request_wrapper`and is released in `request_deallocate`.
+
+To test these functions, here is a test:
+
+```zig
+test "Wrappers" {
+    const url = "http://localhost";
+    const body = request_wrapper(url.ptr);
+    try std.testing.expect(std.mem.len(body.?) > 0);
+    request_deallocate(body.?);
+}
+```
 
 Here is the implementation for `request_wrapper`:
 
@@ -117,17 +136,6 @@ export fn request_deallocate(result: [*:0]u8) void {
 ```
 
 The keyword `export` is include to enabled this functions to be called from C and Python.
-
-To test these functions, here is a test:
-
-```zig
-test "Wrappers" {
-    const url = "http://localhost";
-    const body = request_wrapper(url.ptr);
-    try std.testing.expect(std.mem.len(body.?) > 0);
-    request_deallocate(body.?);
-}
-```
 
 Assuming the previous functions are saved in a file named `request_wrappers.zig`, you can run the tests using this command:
 
