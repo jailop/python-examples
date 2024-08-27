@@ -4,7 +4,7 @@
 
 Python, besides being a friendly programming languages, makes it easy to call C functions. Given that Zig shared the same ABI with C, it is the same as easy to call Zig functions from Python. This feature makes you able to write programs that shows a Python's friendly interface supported by extended and performant Zig's functions.
 
-In this article, a non-trivial example is shown: a program to make HTTP requests. At the end, a basic benchmark is realized to compare this Python-Zig program and a only-Python solution. In this ad-hoc experiment, doing 10k request to a localhost nginx server, a 50% of reduction in time a reached.
+In this article, a non-trivial example is shown: a program to make HTTP requests. At the end, a basic benchmark is realized to compare this Python-Zig program and a only-Python solution.
 
 ## Zig request function
 
