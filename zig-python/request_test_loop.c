@@ -10,12 +10,13 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
     const char *url = argv[1];
-    char *content = request_wrapper(url);
-    if (!content) {
-        fprintf(stderr, "Fail request\n");
-        exit(EXIT_FAILURE);
+    for (int i = 0; i < N; i++) {
+        char *content = request_wrapper(url);
+        if (!content) {
+            fprintf(stderr, "Fail request\n");
+            exit(EXIT_FAILURE);
+        }
+        request_deallocate(content);
     }
-    printf("%s\n", content);
-    request_deallocate(content);
     return 0;
 }
